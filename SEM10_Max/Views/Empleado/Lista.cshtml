@@ -1,0 +1,65 @@
+﻿@model List<SEM10_Max.Models.Empleado>;
+
+<div>
+    <div class="col-sm-8 offset-sm-2">
+        <h2>
+            Lista de Empleados
+        </h2>
+        <a asp-controller="Empleado" asp-action="Nuevo" class="btn btn-success mb-3">
+            Nuevo
+        </a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>
+                        Fecha Contrato
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.Nombre
+                        </td>
+                        <td>
+                            @item.Apellido
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        <td>
+                            @item.FechaContratacion.ToString()
+                        </td>
+                        <td>
+                            @(item.Estado ? "Activo" : "Inactivo")
+                        </td>
+                        <td></td>
+                    </tr>    
+                }
+            </tbody>
+            </table>
+        </div>
+    </div>
