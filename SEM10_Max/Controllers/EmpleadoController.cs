@@ -46,5 +46,14 @@ namespace SEM10_Max.Controllers
             await _appDBContext.SaveChangesAsync();
             return RedirectToAction(nameof(Lista));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            Empleado empleado = await _appDBContext.Empleados.FirstAsync(e => e.Id == id);
+            _appDBContext.Empleados.Remove(empleado);
+            await _appDBContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Lista));
+        }
     }
 }
